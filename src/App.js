@@ -1,18 +1,36 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { Provider } from 'react-redux'
-import {
-  BrowserRouter as Router,
-} from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-const App = ({ store }) => (
-  <Provider store={store}>
-    <Router>
-      <div>
-        this is the home page
-      </div>
-    </Router>
-  </Provider>
-)
+import { fetchUser } from './actions/auth'
+
+import Home from './components/containers/home'
+
+class App extends PureComponent {
+  constructor(props) {
+    super(props)
+    // check the connexion status of the user
+    props.store.dispatch(fetchUser())
+  }
+
+  componentWillUpdate() {
+    const { store } = this.props
+    // check the connexion status of the user
+    store.dispatch(fetchUser())
+  }
+
+  render() {
+    const { store } = this.props
+    return (
+      <Provider store={store}>
+        <Router>
+          <Route exact path="/" component={Home} />
+        </Router>
+      </Provider>
+    )
+  }
+}
 
 App.propTypes = {
   // eslint-disable-next-line

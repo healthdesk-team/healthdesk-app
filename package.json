@@ -6,9 +6,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:ci": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "firebase": "5.3.1",
     "lodash": "4.17.10",
     "moment": "2.22.2",
     "prop-types": "15.6.2",
