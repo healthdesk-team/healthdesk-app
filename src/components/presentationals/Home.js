@@ -9,13 +9,19 @@ class Home extends PureComponent {
       userEmail: '',
       userPassword: '',
     }
+    this.handleOnLoginSubmit = this.handleOnLoginSubmit.bind(this)
+  }
+
+  handleOnLoginSubmit() {
+    const { login, history } = this.props
+    const { userEmail, userPassword } = this.state
+    login(userEmail, userPassword).then(() => history.push('/welcome'))
   }
 
   render() {
-    const { login, logout } = this.props
-    const { userEmail, userPassword } = this.state
+    const { logout } = this.props
     return (
-      <Form onSubmit={() => login(userEmail, userPassword)}>
+      <Form onSubmit={this.handleOnLoginSubmit}>
         <Form.Input
           type="email"
           placeholder="email"
@@ -44,6 +50,8 @@ class Home extends PureComponent {
 Home.propTypes = {
   login: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
+  // eslint-disable-next-line
+  history: PropTypes.object.isRequired,
 }
 
 export default Home

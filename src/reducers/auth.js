@@ -1,8 +1,11 @@
-import { FETCH_USER_DATA_SUCCESS, LOGOUT_SUCCESS, CHECK_USER_CONNECTION_FAIL } from '../actions/auth'
+import {
+  LOGIN_SUCCESS, LOGOUT_SUCCESS, CHECK_USER_CONNECTION_FAIL, CHECK_USER_CONNECTION_SUCCESS,
+} from '../actions/auth'
 
 export default function authentification(state = {}, action) {
   switch (action.type) {
-    case FETCH_USER_DATA_SUCCESS:
+    case LOGIN_SUCCESS:
+    case CHECK_USER_CONNECTION_SUCCESS:
       return { ...state, ...action.payload }
     case LOGOUT_SUCCESS:
     case CHECK_USER_CONNECTION_FAIL:

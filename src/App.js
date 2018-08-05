@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react'
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { isEmpty } from 'lodash'
 
 import { checkUserConnection } from './actions/auth'
+import getAuthRoutes from './routes'
 
 import Home from './components/containers/home'
 
@@ -14,18 +16,16 @@ class App extends PureComponent {
     props.store.dispatch(checkUserConnection())
   }
 
-  componentWillUpdate() {
-    const { store } = this.props
-    // check the connexion status of the user
-    store.dispatch(checkUserConnection())
-  }
-
   render() {
-    const { store } = this.props
+    const { store, auth } = this.props
+
     return (
       <Provider store={store}>
         <Router>
-          <Route exact path="/" component={Home} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            {getAuthRoutes(!isEmpty(auth) ? auth.role : {})}
+          </Switch>
         </Router>
       </Provider>
     )
@@ -35,6 +35,10 @@ class App extends PureComponent {
 App.propTypes = {
   // eslint-disable-next-line
   store: PropTypes.object.isRequired,
+  // eslint-disable-next-line
+  auth: PropTypes.object.isRequired,
 }
 
-export default App
+export default connect(state => ({
+  auth: state.auth,
+}))(App)
