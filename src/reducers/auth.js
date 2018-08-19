@@ -1,14 +1,20 @@
+import { isEmpty, pick } from 'lodash'
 import {
-  LOGIN_SUCCESS, LOGOUT_SUCCESS, CHECK_USER_CONNECTION_FAIL, CHECK_USER_CONNECTION_SUCCESS,
+  LOGIN_SUCCESS, LOGOUT_SUCCESS,
 } from '../actions/auth'
 
-export default function authentification(state = {}, action) {
+// Check if the user has already connected once and get its auth information from localstorage to init our store
+const localAuthInfo = localStorage.getItem('hdAuthInfo')
+const initState = !isEmpty(localAuthInfo) ? JSON.parse(localAuthInfo) : {}
+
+// Remember that we should not have side effects in Reducers, however, as it is to store our auth info in localstorage it is okay.
+export default function authentification(state = initState, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
-    case CHECK_USER_CONNECTION_SUCCESS:
-      return { ...state, ...action.payload }
+      localStorage.setItem('hdAuthInfo', JSON.stringify(pick(action.payload, ['user'])))
+      localStorage.setItem('hdTokenJwt', JSON.stringify(action.payload.jwt))
+      return { ...state, ...action.payload.user }
     case LOGOUT_SUCCESS:
-    case CHECK_USER_CONNECTION_FAIL:
       return {}
     default:
       return state

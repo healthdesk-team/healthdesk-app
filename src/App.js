@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { isEmpty } from 'lodash'
 
-import { checkUserConnection } from './actions/auth'
 import getAuthRoutes from './routes'
 
 import Home from './components/containers/home'
@@ -12,8 +11,7 @@ import Home from './components/containers/home'
 class App extends PureComponent {
   constructor(props) {
     super(props)
-    // check the connexion status of the user
-    props.store.dispatch(checkUserConnection())
+    if (!isEmpty(props.auth) && window.location.pathname === '/') window.location.href = '/welcome'
   }
 
   render() {
@@ -24,7 +22,7 @@ class App extends PureComponent {
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
-            {getAuthRoutes(!isEmpty(auth) ? auth.role : {})}
+            {getAuthRoutes(!isEmpty(auth) ? auth.user.role.name : '')}
           </Switch>
         </Router>
       </Provider>

@@ -15,7 +15,7 @@ class Home extends PureComponent {
   handleOnLoginSubmit() {
     const { login, history } = this.props
     const { userEmail, userPassword } = this.state
-    login(userEmail, userPassword).then(() => history.push('/welcome'))
+    login(userEmail, userPassword).then(test => console.log(test))
   }
 
   render() {
@@ -23,9 +23,9 @@ class Home extends PureComponent {
     return (
       <Form onSubmit={this.handleOnLoginSubmit}>
         <Form.Input
-          type="email"
-          placeholder="email"
-          label="Email"
+          type="username"
+          placeholder="username"
+          label="Username"
           onChange={e => this.setState({ userEmail: e.target.value })}
           error
         />

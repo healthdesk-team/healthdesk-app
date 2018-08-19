@@ -35,14 +35,12 @@ const adminRoutes = [
 ]
 
 const getAuthRoutes = (role) => {
-  console.log('// GET AUTH ROUTES', role)
-
   switch (role) {
-    case 'admin':
+    case 'Administrator':
       return adminRoutes.map(route => <Route key={route.path} {...route} />)
-    case 'patient':
+    case 'Patient':
       return patientRoutes.map(route => <Route key={route.path} {...route} />)
-    case 'medic':
+    case 'Medic':
       return medicRoutes.map(route => <Route key={route.path} {...route} />)
     default:
       return <Redirect to="/" />
