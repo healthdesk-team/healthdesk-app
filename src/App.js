@@ -11,18 +11,18 @@ import Home from './components/containers/home'
 class App extends PureComponent {
   constructor(props) {
     super(props)
+    // auto redirect the user if already logged
     if (!isEmpty(props.auth) && window.location.pathname === '/') window.location.href = '/welcome'
   }
 
   render() {
     const { store, auth } = this.props
-
     return (
       <Provider store={store}>
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
-            {getAuthRoutes(!isEmpty(auth) ? auth.user.role.name : '')}
+            {getAuthRoutes(!isEmpty(auth) ? auth.role.name : '')}
           </Switch>
         </Router>
       </Provider>

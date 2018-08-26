@@ -25,10 +25,13 @@ export function login(identifier, password) {
   return async (dispatch) => {
     dispatch(loginRequest)
     return Api.auth.login({ identifier, password })
-      .then(Api.responseHandler(dispatch, loginSuccess, loginFail))
+      .then(await Api.responseHandler(dispatch, loginSuccess, loginFail))
   }
 }
 
 export function logout() {
-  return async (dispatch) => {}
+  return (dispatch) => {
+    dispatch(logoutRequest())
+    return dispatch(logoutSuccess())
+  }
 }

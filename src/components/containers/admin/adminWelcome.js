@@ -7,8 +7,8 @@ import AdminWelcome from '../../presentationals/admin/AdminWelcome'
 
 const mapStateToProps = () => ({})
 
-const mapDispatchToProps = {
-  logout,
-}
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(logout()),
+})
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AdminWelcome))

@@ -15,7 +15,7 @@ class Home extends PureComponent {
   handleOnLoginSubmit() {
     const { login, history } = this.props
     const { userEmail, userPassword } = this.state
-    login(userEmail, userPassword).then(test => console.log(test))
+    login(userEmail, userPassword).then(() => history.push('/welcome'))
   }
 
   render() {

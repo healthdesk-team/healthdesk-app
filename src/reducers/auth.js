@@ -11,11 +11,12 @@ const initState = !isEmpty(localAuthInfo) ? JSON.parse(localAuthInfo) : {}
 export default function authentification(state = initState, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
-      localStorage.setItem('hdAuthInfo', JSON.stringify(pick(action.payload, ['user'])))
+      localStorage.setItem('hdAuthInfo', JSON.stringify({ ...action.payload.user }))
       localStorage.setItem('hdTokenJwt', JSON.stringify(action.payload.jwt))
       return { ...state, ...action.payload.user }
     case LOGOUT_SUCCESS:
-      return {}
+      localStorage.clear()
+      return initState
     default:
       return state
   }
