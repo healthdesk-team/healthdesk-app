@@ -1,4 +1,4 @@
-import { isEmpty, pick } from 'lodash'
+import { isEmpty } from 'lodash'
 import {
   LOGIN_SUCCESS, LOGOUT_SUCCESS,
 } from '../actions/auth'
