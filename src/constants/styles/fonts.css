@@ -1,0 +1,19 @@
+/* 
+  The only font style you should use accross the app.
+  This file should never be modified except told otherwise.
+
+  note that your line-height should always be : 
+  line-height: calc(--YOUR_FONT_SIZE * 1.618)rem
+*/
+:root {
+  --font-primary:   'Noto Sans', sans-serif;
+  --font-secondary: 'Anton', sans-serif;
+  --font-primary-normal:    400;
+  --font-primary-bold:      700;
+  --font-secondary-normal:  400;
+  --fs-small:   0.618rem;
+  --fs-normal:  1rem;
+  --fs-medium:  1.618rem;
+  --fs-large:   2.618rem;
+  --fs-x-large: 4.236rem;
+}

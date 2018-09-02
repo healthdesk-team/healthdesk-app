@@ -1,0 +1,16 @@
+.button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.s {
+  height: 1rem;
+}
+
+.m {
+  height: 1.5rem;
+}
+
+.l {
+  height: 2rem;
+}

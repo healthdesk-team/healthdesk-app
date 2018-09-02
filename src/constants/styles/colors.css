@@ -1,0 +1,17 @@
+/*
+  Only use those colors while theming your views/components. 
+  Ask before adding new ones.
+*/
+:root {
+  --mainHospitalBlue: #1474EA;
+  --darkMarine:       #1E386C;
+  --paleIceBlue:      #DCEBFB;
+  --redCross:         #FC141B;
+  --operationGreen:   #349C62;
+  --warningOrange:    #FC5C04;
+  --pureWhite:        #ffffff;
+  --almostWhite:      #F3F3F3;
+  --almostBlack:      #12121B;
+  --darkGrey:         #858484;
+  --lightGrey:        #BCBCBC;
+}
