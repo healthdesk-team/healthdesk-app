@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "start": "REACT_APP_HEALTHDESK_API_URL='http://127.0.0.1:1337' react-scripts start",
+    "stop:back": "docker stop healthdesk-api healthdesk-db && docker rm healthdesk-api healthdesk-db",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:ci": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },
   "dependencies": {

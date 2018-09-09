@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/server/functions/node_modules
+package-lock.json
 
 # testing
 /coverage
@@ -19,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#server relatives
+/server/db
