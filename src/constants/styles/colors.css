@@ -3,15 +3,15 @@
   Ask before adding new ones.
 */
 :root {
-  --mainHospitalBlue: #1474EA;
+  --mainHospitalBlue: #4E87FB;
   --darkMarine:       #1E386C;
-  --paleIceBlue:      #DCEBFB;
-  --redCross:         #FC141B;
+  --paleIceBlue:      #A3C0FD;
+  --redCross:         #FF5959;
   --operationGreen:   #349C62;
-  --warningOrange:    #FC5C04;
+  --warningOrange:    #FCA61C;
   --pureWhite:        #ffffff;
   --almostWhite:      #F3F3F3;
-  --almostBlack:      #12121B;
+  --almostBlack:      #2C3434;
   --darkGrey:         #858484;
   --lightGrey:        #BCBCBC;
 }

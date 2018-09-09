@@ -6,11 +6,11 @@
   line-height: calc(--YOUR_FONT_SIZE * 1.618)rem
 */
 :root {
-  --font-primary:   'Noto Sans', sans-serif;
-  --font-secondary: 'Anton', sans-serif;
+  --font-primary:   'Nunito', sans-serif;
+  --font-secondary: 'Dosis', sans-serif;
   --font-primary-normal:    400;
   --font-primary-bold:      700;
-  --font-secondary-normal:  400;
+  --font-secondary-normal:  700;
   --fs-small:   0.618rem;
   --fs-normal:  1rem;
   --fs-medium:  1.618rem;

@@ -1,8 +1,10 @@
 export default function (classNamesArray) {
-  console.log('before', classNamesArray)
-  const test = classNamesArray
-    .filter(e => e)
-    .join(' ')
-  console.log('after', test)
-  return test
+  if (Array.isArray(classNamesArray)) {
+    return classNamesArray
+      .filter(e => e)
+      .join(' ')
+  }
+  /* eslint-disable-next-line no-console */
+  console.warn('cn warn: not an array', classNamesArray)
+  return null
 }

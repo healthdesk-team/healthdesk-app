@@ -13,8 +13,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "date-fns": "1.29.0",
+    "i18next": "11.7.0",
     "lodash": "4.17.10",
-    "moment": "2.22.2",
     "prop-types": "15.6.2",
     "react": "16.4.1",
     "react-dom": "16.4.1",
