@@ -8,17 +8,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "test:ci": "react-scripts test --env=jsdom --coverage",
+    "lint:js": "node_modules/.bin/eslint app",
+    "lint:css": "",
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "date-fns": "1.29.0",
+    "i18next": "11.7.0",
     "lodash": "4.17.10",
-    "moment": "2.22.2",
     "prop-types": "15.6.2",
     "react": "16.4.1",
     "react-dom": "16.4.1",
     "react-redux": "5.0.7",
     "react-router-dom": "4.3.1",
-    "react-scripts": "1.1.4",
+    "react-scripts": "2.0.0-next.a671462c",
     "redux": "4.0.0",
     "redux-thunk": "2.3.0",
     "semantic-ui-react": "0.82.1"
@@ -30,5 +33,17 @@
     "eslint-plugin-jsx-a11y": "6.1.1",
     "eslint-plugin-react": "7.10.0",
     "redux-logger": "3.0.6"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">0.25%",
+      "not op_mini all",
+      "ie 11"
+    ]
   }
 }
