@@ -14,7 +14,12 @@ We are using Github Projects as our main project management tool to support our 
 
 > In order to keep our workflow as smooth as possible, each step of the SCRUM methodology has its template  
 
-### User story
+### User story (quick)
+```
+En tant que **User**, je peux **faire quelque chose**
+```
+
+### User story (detailed)
 ```
 ### Context  
 **type of user :**  
