@@ -1,0 +1,63 @@
+@import "./constants/styles/colors.css";
+@import "./constants/styles/fonts.css";
+
+.colorSquare {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 1rem;
+  display: inline-block;
+  margin-right: 0.75rem;
+}
+
+.mainHospitalBlue {
+  background-color: var(--mainHospitalBlue);
+}
+
+.darkMarine {
+  background-color: var(--darkMarine);
+}
+
+.paleIceBlue {
+  background-color: var(--paleIceBlue);
+}
+
+.redCross {
+  background-color: var(--redCross);
+}
+
+.operationGreen {
+  background-color: var(--operationGreen);
+}
+
+.warningOrange {
+  background-color: var(--warningOrange);
+}
+
+.pureWhite {
+  background-color: var(--pureWhite);
+}
+
+.almostWhite {
+  background-color: var(--almostWhite);
+}
+
+.almostBlack {
+  background-color: var(--almostBlack);
+}
+
+.darkGrey {
+  background-color: var(--darkGrey);
+}
+
+.lightGrey {
+  background-color: var(--lightGrey);
+}
+
+.fontTests {
+  color: var(--almostBlack);
+  font-family: var(--font-secondary)
+}
+
+.fontTestPara {
+  font-family: var(--font-primary)
+}

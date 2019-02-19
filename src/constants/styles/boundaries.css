@@ -1,0 +1,13 @@
+/* 
+  Those are the only margin and padding you should use. 
+  Do not add new ones except to go up or down the same /8 system
+*/
+:root {
+  --smalll:   0.5rem;
+  --normal:   1rem;
+  --medium:   1.5rem;
+  --x-medium: 2rem;
+  --large:    2.5rem;
+  --x-large:  3rem;
+  --xx-large: 3.5rem;
+}

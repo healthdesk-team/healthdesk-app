@@ -1,22 +1,42 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import {
-  BrowserRouter as Router,
-} from 'react-router-dom'
+import React, { PureComponent } from 'react'
+import { Provider, connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { isEmpty } from 'lodash'
 
-const App = ({ store }) => (
-  <Provider store={store}>
-    <Router>
-      <div>
-        this is the home page
-      </div>
-    </Router>
-  </Provider>
-)
+import getAuthRoutes from './routes'
+
+import Home from './components/containers/home'
+
+class App extends PureComponent {
+  constructor(props) {
+    super(props)
+    // auto redirect the user if already logged
+    if (!isEmpty(props.auth) && window.location.pathname === '/') window.location.href = '/welcome'
+  }
+
+  render() {
+    const { store, auth } = this.props
+    return (
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            {getAuthRoutes(!isEmpty(auth) ? auth.role.name : '')}
+          </Switch>
+        </Router>
+      </Provider>
+    )
+  }
+}
 
 App.propTypes = {
   // eslint-disable-next-line
   store: PropTypes.object.isRequired,
+  // eslint-disable-next-line
+  auth: PropTypes.object.isRequired,
 }
 
-export default App
+export default connect(state => ({
+  auth: state.auth,
+}))(App)
